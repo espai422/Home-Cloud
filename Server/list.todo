@@ -1,0 +1,32 @@
+------------ IMPORTANT -----------
+
+· Architec Middleware route
+
+/upload/PATH
+get UserID, create PATH, mover archivos => verificar PATH, verificar nombre de archivo
+
+middlewares
+  authentication
+  Upload
+  download
+
+
+------------ TODO --------
+
+· Create auth middleware DONE
+
+· Create /Upload Route
+
+· Create /List content or something like this
+
+· Create /Download Route
+
+
+-------- Errors -------
+
+· Use ENV vars to the salt or search the way to 
+  create the salt and save it
+
+
+
+
