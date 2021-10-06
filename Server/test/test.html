@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Pagina de prova
+        </title>
+        <script type="text/javascript">
+            const url ='http://localhost:4500/test';
+const headers = {
+  // "Content-Type": "application/json",
+  // "client_id": "1001123",
+  // "client_secret": "876JHG76UKFJYGVHf867rFUTFGHCJ8JHV",
+  "user":"USERNUMBER -> 777"
+}
+const data = {
+  "name": "Wade Wilson",
+  "occupation": "Murderer",
+  "age": "30 (forever)"
+}
+
+fetch(url, { method: 'POST', headers: headers})
+  .then((res) => {
+    return res.json()
+})
+.then((json) => {
+   // Do something with the returned data.
+  console.log(json);
+
+});
+        </script>
+    </head>
+    <body>
+        <button type="button">Clieck ME</button>
+    </body>
+
+</html>

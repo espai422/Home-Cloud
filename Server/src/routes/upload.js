@@ -19,7 +19,7 @@ router.use(cookiesCheck);
 router.post('/:path?', CheckFiles ,(req, res, next) => {
     if (!req.params.path) req.params.path = '/'
 
-    const user = req.cookies.session;
+    const user = req.headers.user;
     const ReqPath = req.params.path.replace('-','/');
     const WorkingPath = `${process.env.NODE_ENV}/${user}/${ReqPath}`
 
@@ -61,7 +61,7 @@ router.post('/:path?', CheckFiles ,(req, res, next) => {
 router.post('/mkdir/:path?', (req, res) => {
     if (!req.params.path) req.params.path = '/'
 
-    const user = req.cookies.session;
+    const user = req.headers.user;
     const ReqPath = req.params.path.replace('-','/');
     const PathToCreate = `${process.env.NODE_ENV}/${user}/${ReqPath}`
 
@@ -81,7 +81,7 @@ router.post('/mkdir/:path?', (req, res) => {
 router.post('/rm/:path?', (req, res) => {
     if (!req.params.path) return res.sendStatus(400);
 
-    const user = req.cookies.session;
+    const user = req.headers.user;
     const ReqPath = req.params.path.replace('-','/');
     const remove = `${process.env.NODE_ENV}/${user}/${ReqPath}`
 

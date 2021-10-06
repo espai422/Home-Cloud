@@ -16,7 +16,7 @@ router.use(cookiesCheck);
 router.get('/:dir?', (req, res) => {
     if (!req.params.dir) req.params.dir = '/'
 
-    const user = req.cookies.session;
+    const user = req.headers.user;
     const ReqPath = req.params.dir.replace('-','/');
     const WorkingPath = `${process.env.NODE_ENV}/${user}/${ReqPath}`
 
