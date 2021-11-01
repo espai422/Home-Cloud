@@ -1,4 +1,6 @@
-// const https = require('https')
+// http library
+// const http = require('http');
+
 // import routers
 const auth = require('./routes/auth.js');
 const dir = require('./routes/dir.js');
@@ -14,6 +16,10 @@ const AllowOrigin = require('./middlewares/Allow-Origin.js')
 const express = require('express');
 const app = express();
 
+// Create httpServer
+// const httpServer = http.createServer(app);
+// httpServer.listen(4500);
+
 // Middlewares
 app.use(cors());
 app.use(genUserData)
@@ -27,8 +33,9 @@ app.use('/download',download);
 
 
 app.post('/test' ,(req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     console.log(req.headers.user);
-    res.send('{"200":"OK"}');
+    res.send('Holabuenas');
 });
 
 app.get('/descargar',(req, res) => {
@@ -36,7 +43,5 @@ app.get('/descargar',(req, res) => {
     res.download('/home/espai422/Escritorio/Projectes/Home-Cloud/Server/TESTROUTE/61536466a4ea6a79e612594b/06.jpg')
 });
 
-// exports.app = app;
-
-app.listen(4500, () => console.log('Server started at port 4500'));
-// https.createServer(options, app).listen(443);
+exports.app = app;
+// app.listen(4500, () => console.log('Server started at port 4500'));

@@ -9,18 +9,21 @@ const router = express.Router();
 // middlewares
 
 router.use(cookieparser());
-router.use(session);
+// router.use(session);
 
 // routes
 
-router.get('/:file',CheckForFiles ,(req, res) => {
-
-    const user = req.headers.user;
+router.get('/:user/:file',CheckForFiles ,(req, res) => {
+    // const user = req.cookies.session
+    // const user = req.headers.user;
+    const user = req.params.user;
     const ReqPath = req.params.file.replace('-','/');
     var FullPath = `${process.env.NODE_ENV}/${user}/${ReqPath}`
     var list =  FullPath.split('/');
 
     const Filename = list.pop();
+    res.setHeader("Access-Control-Allow-Credentials", true);
+
     const FilePath = list.join('/')
 
 

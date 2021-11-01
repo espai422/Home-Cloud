@@ -24,9 +24,10 @@ router.use(cookieParser())
 router.use(checkRequest);
 // router.use(genUserData);
 
-router.get('/', (req, res) => {
-    // res.send('OK')});
-    res.cookie('name', 'express').send('hola')}); // sets a cookie
+router.post('/', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send('XDXDXDXDXD')});
+
 
 // Register new user --> json with username, password  returns session cookie and cookie text
 router.post('/register',checkUser ,HashPassword, register,mkdir, (req, res) => {
